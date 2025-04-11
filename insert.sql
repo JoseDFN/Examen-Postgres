@@ -40,4 +40,12 @@ INSERT INTO inventario (id_producto, stock) VALUES (1, 50), (2, 15), (3, 10);
 
 INSERT INTO transaccion (fecha) VALUES (NOW()), (NOW());
 
-INSERT INTO det_transaccion (id_producto, id_transaccion) VALUES
+INSERT INTO det_transaccion (id_producto, id_transaccion) VALUES (1,1), (2,1), (1,1), (2,1);
+
+INSERT INTO venta (id_cliente, id_transaccion) VALUES (1,1);
+
+INSERT INTO det_transaccion (id_producto, id_transaccion) VALUES (1,2), (2,2), (1,2);
+
+INSERT INTO compra (id_proveedor, id_transaccion) VALUES (1,2);
+
+INSERT INTO historial_compras (fecha, id_compra) VALUES (NOW(), 1);
