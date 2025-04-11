@@ -18,7 +18,7 @@ INSERT INTO direccion (calle, carrera, avenida, id_ciudad) VALUES ('CALLE 23', '
 
 INSERT INTO direccion (calle, carrera, avenida, id_ciudad) VALUES ('CALLE 15', 'CARRERA 18', 'AVENIDA 16', 1);
 
-INSERT INTO sucursal (nombre, id_direccion) VALUES ('TechZone BC', 1);
+INSERT INTO sucursal (nombre, id_direccion, id_empresa) VALUES ('TechZone BC', 1, 1);
 
 INSERT INTO entidad (nombre, id_direccion, telefono) VALUES ('Pablo', 2, '585728577');
 
@@ -40,3 +40,4 @@ INSERT INTO inventario (id_producto, stock) VALUES (1, 50), (2, 15), (3, 10);
 
 INSERT INTO transaccion (fecha) VALUES (NOW()), (NOW());
 
+INSERT INTO det_transaccion (id_producto, id_transaccion) VALUES

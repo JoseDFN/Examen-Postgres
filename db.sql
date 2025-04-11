@@ -56,7 +56,9 @@ CREATE TABLE sucursal (
     id serial PRIMARY KEY,
     nombre CHAR(100) NOT NULL,
     id_direccion INTEGER NOT NULL,
-    FOREIGN KEY (id_direccion) REFERENCES direccion(id)
+    id_empresa INTEGER NOT NULL,
+    FOREIGN KEY (id_direccion) REFERENCES direccion(id),
+    FOREIGN KEY (id_empresa) REFERENCES empresa(id)
 );
 
 DROP TABLE entidad;
