@@ -59,14 +59,13 @@ CREATE TABLE sucursal (
     FOREIGN KEY (id_direccion) REFERENCES direccion(id)
 );
 
-DROP TABLE persona;
+DROP TABLE entidad;
 
-CREATE TABLE persona (
+CREATE TABLE entidad (
     id serial PRIMARY KEY,
     nombre CHAR(100) NOT NULL,
     id_direccion INTEGER NOT NULL,
     telefono CHAR(25),
-    identificacion CHAR(50),
     FOREIGN KEY (id_direccion) REFERENCES direccion(id)
 );
 
@@ -74,17 +73,18 @@ DROP TABLE cliente;
 
 CREATE TABLE cliente(
     id serial PRIMARY KEY,
-    id_persona INTEGER NOT NULL,
-    FOREIGN KEY (id_persona) REFERENCES persona(id)
+    id_entidad INTEGER NOT NULL,
+    identificacion CHAR(50),
+    FOREIGN KEY (id_entidad) REFERENCES entidad(id)
 );
 
 DROP TABLE proveedor;
 
 CREATE TABLE proveedor(
     id serial PRIMARY KEY,
-    id_persona INTEGER NOT NULL,
+    id_entidad INTEGER NOT NULL,
     nit CHAR(50) NOT NULL,
-    FOREIGN KEY (id_persona) REFERENCES persona(id)
+    FOREIGN KEY (id_entidad) REFERENCES entidad(id)
 );
 
 DROP TABLE categoria;
@@ -133,17 +133,11 @@ CREATE TABLE inventario (
     FOREIGN KEY (id_producto) REFERENCES producto(id)
 );
 
-DROP TABLE tipo_transaccion;
-
-CREATE TABLE tipo_transaccion (
-    id serial PRIMARY KEY,
-    nombre CHAR(25) NOT NULL
-);
-
 DROP TABLE transaccion;
 
 CREATE TABLE transaccion(
-    id serial PRIMARY KEY
+    id serial PRIMARY KEY,
+    fecha date
 );
 
 DROP TABLE det_transaccion;
